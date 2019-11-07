@@ -139,7 +139,7 @@ class Vector:
     def reverseByYAxis(self): 
         return Vector(Point(-self.values[0][0], self.values[0][1]), Point(-self.values[1][0], self.values[1][1]))
 
-    def isCollinear(self, other):
+    def isCollinear(self, other): 
         print(other.values[0]/self.values[0])
 
 class VectorError(ValueError):
