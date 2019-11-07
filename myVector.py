@@ -39,7 +39,10 @@ class Point:
         return Point(self.values[0] * number, self.values[1] * number)
 
     def __truediv__(self, number):
-        return Point(self.values[0] / number, self.values[1] / number)
+        if (isinstance(number, int)):
+            return Point(self.values[0] / number, self.values[1] / number)
+        elif (isinstance(number, Point)):
+            return Point(self.values[0] / number[0], self.values[1] / number[1])
 
     def __str__(self):
         return "(" + str(self.values[0]) + "," + str(self.values[1]) + ")"
@@ -79,7 +82,6 @@ class Vector:
         """ Returns the projection on axis x"""
         return self.values[1][0] - self.values[0][0]
 
-
     def projection_y(self):
         """ Returns the projection on axis y"""
         return self.values[1][1] - self.values[0][1]
@@ -118,8 +120,8 @@ class Vector:
     def fRead(self, fileName):
         file = open(fileName, 'r')
         line = file.read()
-        tmp0 = Point(tuple(line.split(';')[0])[1], tuple(line.split(';')[0])[3])
-        tmp1 = Point(tuple(line.split(';')[1])[1], tuple(line.split(';')[1])[3])
+        tmp0 = Point(int(tuple(line.split(';')[0])[1]), int(tuple(line.split(';')[0])[3]))
+        tmp1 = Point(int(tuple(line.split(';')[1])[1]), int(tuple(line.split(';')[1])[3]))
         return Vector(tmp0, tmp1) 
 
     def fWrite(self, fileName):
@@ -137,18 +139,22 @@ class Vector:
     def reverseByYAxis(self): 
         return Vector(Point(-self.values[0][0], self.values[0][1]), Point(-self.values[1][0], self.values[1][1]))
 
+    def isCollinear(self, other):
+        print(other.values[0]/self.values[0])
+
 class VectorError(ValueError):
     pass
 
 if __name__ == "__main__":
     a1 = Point(2, -2)
-    # print((a1+3) == Point(5, 1))
+    print((a1+3) == Point(5, 1))
     v = Vector(a1, (4, -4))
     v = v.reverseByXAxis()
     print(v)
-    # v1 = v.fRead('my.txt')
-    # print(v1)
-    # print(v.norm())
-    # print(v.angle())
-    # print(v.normalize())
-    # print(v.rotate2D(15))
+    v1 = v.fRead('my.txt')
+    print(v1)
+    v.isCollinear(v1)
+    print(v1.norm())
+    print(v1.angle())
+    print(v1.normalize())
+    print(v1.rotate2D(15))
