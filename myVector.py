@@ -126,7 +126,10 @@ class Vector:
         file = open(fileName, 'w') 
         line = str(self.values[0]) + ';' + str(self.values[1])
         file.write(line)
-        pass        
+        pass
+
+    def reverseDirection(self):
+        return Vector(self.values[1], self.values[0])
 
 class VectorError(ValueError):
     pass
@@ -135,6 +138,7 @@ if __name__ == "__main__":
     a1 = Point(2, -2)
     # print((a1+3) == Point(5, 1))
     v = Vector(a1, (0, 0))
+    v = v.reverseDirection()
     print(v)
     # v1 = v.fRead('my.txt')
     # print(v1)
