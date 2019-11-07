@@ -134,6 +134,9 @@ class Vector:
     def reverseByXAxis(self):
         return Vector(Point(self.values[0][0], -self.values[0][1]), Point(self.values[1][0], -self.values[1][1]))
 
+    def reverseByYAxis(self):
+        return Vector(Point(-self.values[0][0], self.values[0][1]), Point(-self.values[1][0], self.values[1][1]))
+
 class VectorError(ValueError):
     pass
 
