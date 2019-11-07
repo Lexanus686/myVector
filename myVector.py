@@ -120,7 +120,7 @@ class Vector:
         line = file.read()
         tmp0 = Point(tuple(line.split(';')[0])[1], tuple(line.split(';')[0])[3])
         tmp1 = Point(tuple(line.split(';')[1])[1], tuple(line.split(';')[1])[3])
-        return Vector(tmp0, tmp1)
+        return Vector(tmp0, tmp1) 
 
 class VectorError(ValueError):
     pass
