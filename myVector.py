@@ -128,7 +128,7 @@ class Vector:
         file.write(line)
         pass
 
-    def reverseDirection(self):
+    def reverseDirection(self): 
         return Vector(self.values[1], self.values[0])
 
 class VectorError(ValueError):
