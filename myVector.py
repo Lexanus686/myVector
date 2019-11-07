@@ -123,7 +123,7 @@ class Vector:
         return Vector(tmp0, tmp1) 
 
     def fWrite(self, fileName):
-        file = open(fileName, 'w')
+        file = open(fileName, 'w') 
         line = str(self.values[0]) + ';' + str(self.values[1])
         file.write(line)
         pass        
