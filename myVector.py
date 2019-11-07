@@ -36,7 +36,10 @@ class Point:
             return Point(self.values[0] - other, self.values[1] - other)
 
     def __mul__(self, number):
-        return Point(self.values[0] * number, self.values[1] * number)
+        if (isinstance(number, int)):
+            return Point(self.values[0] * number, self.values[1] * number)
+        elif (isinstance(number, Point)):
+            return Point(self.values[0] * number[0], self.values[1] * number[1])
 
     def __truediv__(self, number):
         if (isinstance(number, int)):
