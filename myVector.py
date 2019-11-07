@@ -36,7 +36,10 @@ class Point:
             return Point(self.values[0] - other, self.values[1] - other)
 
     def __mul__(self, number):
-        return Point(self.values[0] * number, self.values[1] * number)
+        if (isinstance(number, int)):
+            return Point(self.values[0] * number, self.values[1] * number)
+        elif (isinstance(number, Point)):
+            return Point(self.values[0] * number[0], self.values[1] * number[1])
 
     def __truediv__(self, number):
         if (isinstance(number, int)):
@@ -140,7 +143,7 @@ class Vector:
         return Vector(Point(-self.values[0][0], self.values[0][1]), Point(-self.values[1][0], self.values[1][1]))
 
     def isCollinear(self, other): 
-        print(other.values[0]/self.values[0])
+        return self.values[0]/other.values[0] == self.values[1]/other.values[1]
 
 class VectorError(ValueError):
     pass
@@ -148,12 +151,12 @@ class VectorError(ValueError):
 if __name__ == "__main__":
     a1 = Point(2, -2)
     print((a1+3) == Point(5, 1))
-    v = Vector(a1, (4, -4))
+    v = Vector(a1, (3, -3))
     v = v.reverseByXAxis()
     print(v)
     v1 = v.fRead('my.txt')
     print(v1)
-    v.isCollinear(v1)
+    print(v.isCollinear(v1))
     print(v1.norm())
     print(v1.angle())
     print(v1.normalize())
