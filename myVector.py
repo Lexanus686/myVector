@@ -131,14 +131,20 @@ class Vector:
     def reverseDirection(self): 
         return Vector(self.values[1], self.values[0])
 
+    def reverseByXAxis(self):
+        return Vector(Point(self.values[0][0], -self.values[0][1]), Point(self.values[1][0], -self.values[1][1]))
+
+    def reverseByYAxis(self): 
+        return Vector(Point(-self.values[0][0], self.values[0][1]), Point(-self.values[1][0], self.values[1][1]))
+
 class VectorError(ValueError):
     pass
 
 if __name__ == "__main__":
     a1 = Point(2, -2)
     # print((a1+3) == Point(5, 1))
-    v = Vector(a1, (0, 0))
-    v = v.reverseDirection()
+    v = Vector(a1, (4, -4))
+    v = v.reverseByXAxis()
     print(v)
     # v1 = v.fRead('my.txt')
     # print(v1)
