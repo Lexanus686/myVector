@@ -1,0 +1,3 @@
+[submodule "testSub"]
+	path = testSub
+	url = https://github.com/Lexanus686/myVector
