@@ -1,5 +1,5 @@
 import unittest
-from vector import Point, Vector
+from myVector import Point, Vector
 
 class Test_Vector(unittest.TestCase):
     def test_Point(self):
@@ -7,4 +7,7 @@ class Test_Vector(unittest.TestCase):
         self.assertEqual(test_p + 3, Point(5,7))
         pass
     def test_Vector(self):
-        pass
+        test_v = Vector((0,0), (2,2))
+        test_v1 = Vector((0,0), (2,-2))
+        self.assertEqual(test_v.reverseByXAxis(), test_v1)
+        pass 

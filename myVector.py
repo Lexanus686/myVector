@@ -68,7 +68,7 @@ class Vector:
         if len(args) == 1:
             self.values = (Point(0, 0), args[0])
         else:
-            self.values = args
+            self.values = args 
 
     def __str__(self):
         out = '('
@@ -146,7 +146,7 @@ class Vector:
         return self.values[0]/other.values[0] == self.values[1]/other.values[1]
 
 class VectorError(ValueError):
-    pass
+    pass 
 
 if __name__ == "__main__":
     a1 = Point(2, -2)
