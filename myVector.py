@@ -146,7 +146,7 @@ class Vector:
         return self.values[0]/other.values[0] == self.values[1]/other.values[1]
 
 class VectorError(ValueError):
-    pass
+    pass 
 
 if __name__ == "__main__":
     a1 = Point(2, -2)
