@@ -68,7 +68,7 @@ class Vector:
         if len(args) == 1:
             self.values = (Point(0, 0), args[0])
         else:
-            self.values = args
+            self.values = args 
 
     def __str__(self):
         out = '('
